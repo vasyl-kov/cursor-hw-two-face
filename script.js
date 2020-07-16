@@ -1,39 +1,48 @@
 // 1. Code runs as you type: edit message
-let priceApple = 15.678;
-let priceMango = 123.965;
-let priceBanana = 90.2345;
-
- console.log("The most expensive product is" + " " + Math.max(priceApple, priceMango, priceBanana));
- console.log("The cheapest product is" + " " + Math.min(priceApple, priceMango, priceBanana));
+const PRICE_APPLE = 15.678;
+const PRICE_MANGO = 123.965;
+const PRICE_BANANA = 90.2345;
 
 
- let totalSum = priceApple + priceBanana + priceMango;
- console.log("Total amount for products" + " " + totalSum);
+//Використовуючи вбудований об'єкт Math – виведіть максимальне число
+ console.log(`Самый дорогой товар стоит ${Math.max(PRICE_APPLE,PRICE_MANGO,PRICE_BANANA)}`);
+ //Використовуючи вбудований об'єкт Math – виведіть мінімальне число
+ console.log(`Самый дешевый товар стоит ${Math.min(PRICE_APPLE,PRICE_MANGO,PRICE_BANANA)}`);
+
+//Складіть вартість всіх товарів, помістіть її в змінну та виведіть цю суму
+ const TOTAL_SUM = PRICE_APPLE + PRICE_MANGO + PRICE_BANANA;
+ console.log(`Полная стоимость продуктов ${TOTAL_SUM}`);
 
 
-
-let totalSumWithoutBalance = Math.trunc(priceApple) + Math.trunc(priceMango) + Math.trunc(priceBanana);
-console.log("Total amount for products without balance" + " " + totalSumWithoutBalance);
+//Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону.
+const totalSumWithoutBalance = Math.trunc(PRICE_APPLE) + Math.trunc(PRICE_BANANA) + Math.trunc(PRICE_MANGO);
+console.log(`Полная сумма товаров без мелочи ${totalSumWithoutBalance}`);
 
  
 
 
-
-console.log(Math.round(totalSumWithoutBalance/100)*100);
-
-console.log(totalSumWithoutBalance%2 === 0);
-
-console.log("client paid 500 and received of change" + " " + (500 - totalSum) + " " + "from 500");
+//Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
+console.log(`Округленная сумма к сотням ${Math.ceil(totalSumWithoutBalance/100)*100}`);
 
 
-console.log("Average price of products"+ " " + Math.round((totalSum/3)*100)/100);
+//Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
+console.log( totalSumWithoutBalance%2 === 0);
 
 
-let sale = Math.random()*100;
-console.log(Math.round(sale) + "%");
+//Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн
+console.log(`Клиент заплатил 500 и получил ${(500 - TOTAL_SUM)} сдачи с 500.` );
+
+//Виведіть середнє значення цін, округлене до другого знаку після коми
+console.log(`Средняя стоимость товаров ${Math.round((TOTAL_SUM/3)*100)/100}`);
+
+//Створіть змінну, в якої збережіть випадкову знижку (використовуйте функцію Math.random).
+const SALE = Math.random()*100;
+console.log(`Поздравляю! Вы получили случайную скидку в ${Math.round(SALE)}%`);
 
 
 
-
-console.log("Total amount for products" + " " + (Math.round(totalSum*100)/100) + "," + "client got a discount" + " " + Math.round(sale) + "%" + " " + "and paid" + " " + (Math.round((Math.round(totalSum*100)/100)* Math.round(sale)/100)) + " " + "less" + "," + "the cost is" + " " + Math.round(totalSum)/2);
-console.log("Net profit" + " " + (Math.round(totalSum/2)-(Math.round((Math.round(totalSum*100)/100)* Math.round(sale)/100)))); 
+/* Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
+Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою та собівартість товарів рівно в два рази нижче їх ціни?
+(Приклад: ціна була 260.66, знижка склала 10%, клієнт заплатив на 26 меньше, собівартість = 260 / 2 -> 130. Чистий прибуток = 130 - 26 -> 104) (Приклад 2: ціна була 100, знижка склала 90%, клієнт заплатив на 90 меньше, собівартість = 100 / 2 -> 50. Чистий прибуток = 50 - 90 -> -40)*/
+console.log(`Клиент купил товар на ${(Math.round(TOTAL_SUM*100)/100)} и получил случайную скидку в ${Math.round(SALE)}% и заплатил на ${(Math.round((Math.round(TOTAL_SUM*100)/100)* Math.round(SALE)/100))} меньше.\n Собестоимость товара равняется ${Math.round(TOTAL_SUM)/2}`);
+console.log(`Чистая прибыль равна ${(Math.round(TOTAL_SUM/2)-(Math.round((Math.round(TOTAL_SUM*100)/100)* Math.round(SALE)/100)))}`); 
