@@ -13,7 +13,7 @@ while(!Number.isInteger(m) || m == "" || m<=n){
 
 const question = confirm(`Чи потрібно пропускати парні числа \n TRUE – потрібно \n FALSE – не потрібно`);
 
-if (question === true) {
+if (question) {
 for (i = n; i <= m; i++){
   if (i % 2 !== 0){
     
