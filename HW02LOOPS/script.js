@@ -1,34 +1,4 @@
 
-//   let n = +prompt('Будь ласка введіть ціле число N');
-//   let m = +prompt('Будь ласка введіть ціле число M');
-// const question = confirm(`Чи потрібно пропускати парні числа \n TRUE – потрібно \n FALSE – не потрібно`);
-// let totalCount = 0;
-
-
-// if (Number.isInteger(n)==false) {
-//     let n = +prompt('Ви ввели не ціле число N або символ, будь ласка введіть ціле число');
-//   } else if (n===0) {
-//     let m = +prompt('Ви ввели не ціле число M або символ, будь ласка введіть ціле число');
-//   }
-
-
-// if (question === true) {
-// for (i = n; i <= m; i++){
-//   if (i % 2 !== 0){
-    
-//     totalCount += i;
-
-//   } 
-// }
-// }else {
-//   for (i = n; i <= m; i++){
-//     totalCount += i;
-// }
-// }
-
-// console.log(`Число N=${n} \nЧисло M=${m}.\nЧи потрібно пропускати парні числа ${question} \n ${totalCount}`);
-
-
 let totalCount = 0;
 
 let n = +prompt(`Введіть ціле число N.`);
