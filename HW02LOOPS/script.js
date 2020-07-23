@@ -1,4 +1,3 @@
-
 let totalCount = 0;
 
 let n = +prompt(`Введіть ціле число N.`);
@@ -27,5 +26,7 @@ for (i = n; i <= m; i++){
     totalCount += i;
 }
 }
-
-console.log(`Число N=${n} \nЧисло M=${m}.\nЧи потрібно пропускати парні числа - ${question}\nСума від N до M дорівнює - ${totalCount}`);
+       document.getElementById("demo").innerHTML = `<p>Число N=${n}</p>
+        <p>Число M=${m}</p>
+        <p>Чи потрібно пропускати парні числа - ${question}</p>
+        <p>Сума від N до M дорівнює - ${totalCount}</p>`
