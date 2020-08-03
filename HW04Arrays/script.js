@@ -8,13 +8,11 @@ const marks = [4, 5, 5, 3, 4, 5];
 
 
 // 1. Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом. У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
-function getPairs() {
-    let boys = [];
-    let girls = [];
-    let pairsStudent = [];
-    for (names of students) {
-        let result = (names.slice(-1) == "а") ? girls.push(names) : boys.push(names);
-    }
+function getPairs(students) {
+    const pairsStudent = [];
+    const boys = students.filter(student => student[student.length -1] !== 'а');
+    const girls = students.filter(student => student[student.length -1] === 'а');
+    
     for (i = 0; i < boys.length; i++) {
         for (j = 0; j < girls.length; j++) {
             if (i === j) {
@@ -30,7 +28,7 @@ const pairs = getPairs(students);
 
 
 // 2. Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
-function getThemes() {
+function getThemes(pairs, themes) {
     let taskStudents = [];
 
     for (i = 0; i < pairs.length; i++) {
@@ -45,7 +43,7 @@ const pairsGetThemes = getThemes(pairs, themes);
 
 
 // 3. Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
-function getMarks() {
+function getMarks(students, marks) {
     let eachStudents = [];
     let marksForStudents = [];
     for (names of students) {
@@ -69,7 +67,7 @@ for (let i = 0; i < 5; i++) {
     numbers.push(Math.ceil(Math.random() * 5))
 }
 
-function getRandomMarks() {
+function getRandomMarks(pairsGetThemes,numbers) {
     let randomMarks = [];
     for (i = 0; i <pairsGetThemes.length; i++){
         randomMarks.push(pairsGetThemes[i] + ' : ' + numbers[i]);
@@ -83,3 +81,6 @@ console.log("Викладач розбив студентів на пари на
 console.log('Теми для студентів', pairsGetThemes);
 console.log('Оцінки за вивченний матеріал:', studentsGetMarks);
 console.log('Викладач вирішив оцінити студентів випадковим чином:', studentsGetRandomMarks);
+
+
+console.log('name students:', students);
