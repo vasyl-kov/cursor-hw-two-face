@@ -40,7 +40,6 @@ getMedian = (...numbers) => {
   const numb = numbers.filter(el => Number.isInteger(el));
   const mid = Math.floor(numb.length/2);
   numb.sort((a,b) => a-b);
-  console.log(numb);
   return numb.length % 2  !==0 ? numb[mid] : (numb[mid - 1] + numb[mid])/2;
   
   
