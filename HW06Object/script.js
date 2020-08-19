@@ -80,12 +80,13 @@ console.log(getStudentsNames(students));
 */
 
 const getBestStudent = (students) => {
-    return students.map(name => ({
+  const bestStudent =  students.map(name => ({
         ...name,
         averageMark: getAverageMark(name)
     })).sort((a, b) => 
         a.averageMark - b.averageMark ? -1 : 1
     );
+    return JSON.stringify(bestStudent[0].name);
 }
 
 console.log(getBestStudent(students));
@@ -107,7 +108,7 @@ const calculateWordLetters = (word) => {
            obj = { ...obj, [keys]: 1 }
         }
     });
-    return obj;
+    return JSON.stringify(obj);
 } 
 
 
