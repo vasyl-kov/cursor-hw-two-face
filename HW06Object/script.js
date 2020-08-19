@@ -83,9 +83,9 @@ const getBestStudent = (students) => {
     return students.map(name => ({
         ...name,
         averageMark: getAverageMark(name)
-    })).sort((a, b) => {
-        a.averageMark - b.averageMark ? 1 : -1
-    });
+    })).sort((a, b) => 
+        a.averageMark - b.averageMark ? -1 : 1
+    );
 }
 
 console.log(getBestStudent(students));
