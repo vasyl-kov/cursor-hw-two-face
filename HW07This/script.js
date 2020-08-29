@@ -47,7 +47,7 @@ console.groupEnd();
 function getMySalary(country) {
  setInterval(()=> {
    const salary = Math.floor(Math.random()* (2000-1500)+1500);
-   const taxes = this.tax*salary;
+   const taxes = Math.floor(this.tax*salary);
    console.log({salary,taxes, profit: salary - taxes});
   }, 10000);
 }
