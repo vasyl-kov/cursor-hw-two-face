@@ -78,7 +78,7 @@ class BudgetStudent extends Student {
     constructor(options) {
         super(options)
         this.scholarShip = 1400;
-        const unit = setInterval(() => { this.getScholarship() }, 1000);
+        const unit = setInterval(() => { this.getScholarship() }, 30000);
     }
 
 
