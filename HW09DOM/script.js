@@ -1,6 +1,6 @@
  
 const boxes = document.querySelectorAll('.box');
-
+let stoped = false;
 const btn1 = document.getElementById('btn_1');
 const btn2 = document.getElementById('btn_2');
 
@@ -18,16 +18,26 @@ function generateBlocks() {
 
 
 function generateBlocksInterval() {
-    setInterval(() => {
+    if (stoped) {
         boxes.forEach(color => {
             color.style.background = getRandomColor();
-        })
-    }, 1000);
+        });
+        setInterval(generateBlocksInterval, 1000);
+}
 }
 
-
 btn1.addEventListener('click', generateBlocks);
-btn2.addEventListener('click', generateBlocksInterval);
+btn2.addEventListener('click', function() {
+    btn2.innerText = "STOP";
+    if (stoped) {
+        stoped = false;
+        btn2.innerText = "Generate blocks interval";
+    }
+    else{
+        stoped = true;
+         generateBlocksInterval();
+    }
+});
 
 
 
