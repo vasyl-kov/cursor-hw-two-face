@@ -1,6 +1,5 @@
- 
 const boxes = document.querySelectorAll('.box');
-let stoped = false;
+let timer;
 const btn1 = document.getElementById('btn_1');
 const btn2 = document.getElementById('btn_2');
 
@@ -9,7 +8,6 @@ function getRandomColor() {
 }
 
 function generateBlocks() {
-   
         boxes.forEach(color => {
             color.style.background = getRandomColor();
         })
@@ -17,25 +15,19 @@ function generateBlocks() {
 
 
 
-function generateBlocksInterval() {
-    if (stoped) {
-        boxes.forEach(color => {
-            color.style.background = getRandomColor();
-        });
-        setInterval(generateBlocksInterval, 1000);
-}
+function generateBlocksInterval() { 
+   return generateBlocks();
 }
 
 btn1.addEventListener('click', generateBlocks);
 btn2.addEventListener('click', function() {
-    btn2.innerText = "STOP";
-    if (stoped) {
-        stoped = false;
-        btn2.innerText = "Generate blocks interval";
+    if (!timer) {
+        timer = setInterval(generateBlocksInterval, 1000);
+        btn2.innerText = "STOP";     
     }
     else{
-        stoped = true;
-         generateBlocksInterval();
+        btn2.innerText = "Generate blocks interval";
+        timer = clearInterval(timer);
     }
 });
 
