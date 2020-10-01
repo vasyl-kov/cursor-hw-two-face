@@ -1,14 +1,16 @@
 const getRandomChinese = (length) => {
-    
     let str =[];
     const step = 0;
     let sign = Date.now().toString().slice(-5);
     return new Promise((resolve) => {
-                    while (length > step){
-                        length--;
-                str.push(String.fromCharCode(sign));
-            }
-setTimeout(() => resolve(str), 500 );
+        
+setTimeout(() => {
+    while (length > step) {
+        length--;
+        str.push(String.fromCharCode(sign));
+        resolve(str);
+    }
+}, length*50);
     }) 
 }
 
